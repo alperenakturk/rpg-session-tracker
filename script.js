@@ -1,33 +1,91 @@
-// Bu fonksiyon (işlev), HTML sayfasındaki butona tıklandığında çalışır.
-function d20At() {
+/* --------------------------------------
+   1. PANEL DEĞİŞTİRME FONKSİYONU
+-------------------------------------- */
+function zarPaneliniDegistir() {
+    let secim = document.getElementById("zar-tipi").value;
     
-    // 1. Zar Atma (1'den 20'ye kadar rastgele bir tam sayı üretir)
-    // Math.random() 0 ile 0.999... arasında sayı üretir.
-    // Bunu 20 ile çarpıp, 1 ekleyerek 1-20 aralığına getiririz.
-    let sonuc = Math.floor(Math.random() * 20) + 1; 
+    // Panelleri çağır
+    let fatePaneli = document.getElementById("fate-paneli");
+    let dndPaneli = document.getElementById("dnd-paneli");
 
-    // 2. Sonucu HTML'e Yazma
-    let sonucAlani = document.getElementById("zar-sonucu");
-    
-    // Zar sonucunu sayfaya büyük bir şekilde yazar
-    sonucAlani.innerHTML = `D20 Zar Sonucu: ${sonuc}`;
+    // Hepsini gizle
+    fatePaneli.style.display = "none";
+    dndPaneli.style.display = "none";
 
-    // 3. Kritik Kontrolü (1 ve 20 için özel renk ve mesaj)
-    
-    // Önceki renk ayarlarını sıfırla
-    sonucAlani.style.color = '#333'; 
-    sonucAlani.style.border = 'none';
-
-    if (sonuc === 20) {
-        // Kritik Başarı
-        sonucAlani.innerHTML += " 💥 (KRİTİK BAŞARI!)";
-        sonucAlani.style.color = 'green';
-        sonucAlani.style.border = '3px solid green';
-        
-    } else if (sonuc === 1) {
-        // Kritik Başarısızlık
-        sonucAlani.innerHTML += " 💀 (KRİTİK BAŞARISIZLIK!)";
-        sonucAlani.style.color = 'red';
-        sonucAlani.style.border = '3px solid red';
+    // Seçileni göster
+    if (secim === "fate") {
+        fatePaneli.style.display = "block";
+    } else if (secim === "dnd") {
+        dndPaneli.style.display = "block";
     }
+}
+
+/* --------------------------------------
+   2. D&D (D20) ZAR ATMA
+-------------------------------------- */
+function d20At() {
+    let sonuc = Math.floor(Math.random() * 20) + 1; 
+    let sonucAlani = document.getElementById("dnd-sonuc");
+    
+    sonucAlani.innerHTML = `Zar Sonucu: ${sonuc}`;
+    
+    // Renk Efektleri
+    sonucAlani.style.color = "#333";
+    if (sonuc === 20) {
+        sonucAlani.innerHTML += " 💥 (KRİTİK!)";
+        sonucAlani.style.color = "green";
+    } else if (sonuc === 1) {
+        sonucAlani.innerHTML += " 💀 (FİYASKO!)";
+        sonucAlani.style.color = "red";
+    }
+}
+
+/* --------------------------------------
+   3. FATE ZARI ATMA
+-------------------------------------- */
+function fateZariAt() {
+    let toplam = 0;
+    let arti = 0, eksi = 0, bos = 0;
+    let gorsel = ""; 
+
+    for (let i = 0; i < 4; i++) {
+        let r = Math.floor(Math.random() * 3); 
+        if (r === 2) { // ARTI
+            toplam++; arti++;
+            gorsel += "<span style='color:green; font-weight:bold; font-size:1.5em;'>[+]</span> ";
+        } else if (r === 0) { // EKSİ
+            toplam--; eksi++;
+            gorsel += "<span style='color:red; font-weight:bold; font-size:1.5em;'>[-]</span> ";
+        } else { // BOŞ
+            bos++;
+            gorsel += "<span style='color:#ccc; font-weight:bold; font-size:1.5em;'>[ ]</span> ";
+        }
+    }
+
+    let isaretliToplam = toplam > 0 ? "+" + toplam : toplam;
+    let sonucAlani = document.getElementById("fate-sonuc");
+
+    sonucAlani.innerHTML = `
+        <div>${gorsel}</div>
+        <hr style="width:50%; margin:10px auto;">
+        <div style="font-size:2em; font-weight:bold;">TOPLAM: ${isaretliToplam}</div>
+        <div style="font-size:0.8em; color:#666;">(+${arti}) (-${eksi}) (Boş ${bos})</div>
+    `;
+}
+
+/* --------------------------------------
+   4. KARAKTER FİLTRELEME (Eski Kod Aynen Kalıyor)
+-------------------------------------- */
+function karakterleriFiltrele() {
+    let secim = document.getElementById("frp-secici").value;
+    let karakterler = document.querySelectorAll(".karakter-kutusu");
+
+    karakterler.forEach(function(kutu) {
+        let maceraTuru = kutu.getAttribute("data-macera-basligi");
+        if (secim === maceraTuru) {
+            kutu.style.display = "block"; 
+        } else {
+            kutu.style.display = "none"; 
+        }
+    });
 }

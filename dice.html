@@ -15,10 +15,28 @@
     </nav>
     <hr>
 
-    <section id="zar-atma">
-        <h2>D20 Zar At</h2>
-        <button onclick="d20At()">D20 At!</button>
-        <p id="zar-sonucu">Sonuç burada görünecek.</p>
+<section id="zar-secimi" style="text-align: center;">
+        <h2>Zar Atma Odası</h2>
+        <label for="zar-tipi">Hangi zarı atmak istersiniz?</label>
+        <br><br>
+        
+        <select id="zar-tipi" onchange="zarPaneliniDegistir()" style="padding: 10px; font-size: 1.1em;">
+            <option value="" disabled selected>-- Bir Zar Tipi Seçin --</option>
+            <option value="fate">FATE Zarları (4dF)</option>
+            <option value="dnd">D&D Zarı (D20)</option>
+        </select>
+    </section>
+
+    <section id="fate-paneli" class="zar-paneli">
+        <h3>FATE Sistemi</h3>
+        <button onclick="fateZariAt()">FATE Zarı At</button>
+        <div id="fate-sonuc" style="margin-top: 20px; font-size: 1.2em;"></div>
+    </section>
+
+    <section id="dnd-paneli" class="zar-paneli">
+        <h3>Dungeons & Dragons (D20)</h3>
+        <button onclick="d20At()">D20 At</button>
+        <div id="dnd-sonuc" style="margin-top: 20px; font-size: 1.5em; font-weight: bold;"></div>
     </section>
     
     <script src="script.js"></script>

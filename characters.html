@@ -15,21 +15,200 @@
     </nav>
     <hr>
     
-    <section id="karakterler">
-        <h2>Aktif Karakterler</h2>
+    <section id="karakter-filtreleme">
+        <h2>Karakter Arşivi</h2>
         
-        <div class="karakter-kutusu">
-            <h3>Karakter Adı: Elara Gümüşel</h3>
-            <p>Sınıf: Büyücü | Oyuncu: Ali</p>
-            <img src="karakter_elara.jpg" alt="Elara'nın fotoğrafı" style="width:200px;"> 
+        <label for="frp-secici">Görüntülenecek Macerayı Seçin:</label>
+        <select id="frp-secici" onchange="karakterleriFiltrele()"> 
+            <option value="" disabled selected>-- Bir Macera Seçiniz --</option> 
+            
+            <option value="fate-okul">FATE - Teröristleri Okulu Basıyor</option>
+            <option value="dnd-haydut">D&D - Haydutların Hayali</option>
+        </select>
+        <hr>
+    </section>
+
+<section id="karakterler-listesi">
+        
+        <div class="karakter-kutusu" data-macera-basligi="fate-okul">
+            <div class="karakter-baslik">
+                <img src="ahmet.jpg" alt="Ahmet Resmi" onerror="this.src='https://via.placeholder.com/120'"> 
+                <div>
+                    <h3 style="margin:0;">Ahmet Faruk Uğurluoğlu</h3>
+                    <p style="margin:5px 0;"><strong>Rol:</strong> [Rolü Buraya Yazın]</p>
+                    <p style="margin:0;"><strong>Oyuncu:</strong> Ahmet Faruk | <strong>Refresh:</strong> 3</p>
+                </div>
+            </div>
+            <div class="fate-grid">
+                <div class="sol-sutun">
+                    <h4>🔷 Aspects (Yönler)</h4>
+                    <ul>
+                        <li><strong>Yüksek Konsept:</strong> ...</li>
+                        <li><strong>Sorun:</strong> ...</li>
+                        <li><strong>İlişki:</strong> ...</li>
+                    </ul>
+                    <h4>🔶 Skills (Beceriler)</h4>
+                    <p><strong>(+4):</strong> ...</p>
+                    <p><strong>(+3):</strong> ...</p>
+                    <p><strong>(+2):</strong> ...</p>
+                    <p><strong>(+1):</strong> ...</p>
+                    <p><strong>Vasat (+0):</strong> Sürüş, Hırsızlık, Zanaat, Empati, Kandırma</p>
+                </div>
+                <div class="sag-sutun">
+                    <h4>✨ Stunts (Hünerler)</h4>
+                    <ul>
+                        <li><strong>Hüner 1:</strong> Açıklama...</li>
+                        <li><strong>Hüner 2:</strong> Açıklama...</li>
+                    </ul>
+                    <h4>❤️ Dayanıklılık</h4>
+                    <p><strong>Fiziksel Stres:</strong> [ ] [ ] [ ]</p>
+                    <p><strong>Zihinsel Stres:</strong> [ ] [ ] [ ]</p>
+                </div>
+            </div>
         </div>
 
-        <div class="karakter-kutusu">
-            <h3>Karakter Adı: Borin Demirbilek</h3>
-            <p>Sınıf: Savaşçı | Oyuncu: Mert</p>
+        <div class="karakter-kutusu" data-macera-basligi="fate-okul">
+            <div class="karakter-baslik">
+                <img src="serhan.jpg" alt="Serhan Resmi" onerror="this.src='https://via.placeholder.com/120'"> 
+                <div>
+                    <h3 style="margin:0;">Serhan Işık</h3>
+                    <p style="margin:5px 0;"><strong>Rol:</strong> [Rolü Buraya Yazın]</p>
+                    <p style="margin:0;"><strong>Oyuncu:</strong> Serhan | <strong>Refresh:</strong> 3</p>
+                </div>
+            </div>
+            <div class="fate-grid">
+                <div class="sol-sutun">
+                    <h4>🔷 Aspects (Yönler)</h4>
+                    <ul>
+                        <li><strong>Yüksek Konsept:</strong> ...</li>
+                        <li><strong>Sorun:</strong> ...</li>
+                    </ul>
+                    <h4>🔶 Skills (Beceriler)</h4>
+                    <p><strong>(+4):</strong> ...</p>
+                    <p><strong>(+3):</strong> ...</p>
+                    <p><strong>(+2):</strong> ...</p>
+                    <p><strong>(+1):</strong> ...</p>
+                    <p><strong>Vasat (+0):</strong> Atletizm, Dövüş, Farkındalık, Bilgi, Kaynaklar</p>
+                </div>
+                <div class="sag-sutun">
+                    <h4>✨ Stunts (Hünerler)</h4>
+                    <ul>
+                        <li><strong>Hüner 1:</strong> Açıklama...</li>
+                    </ul>
+                    <h4>❤️ Dayanıklılık</h4>
+                    <p><strong>Fiziksel Stres:</strong> [ ] [ ] [ ]</p>
+                    <p><strong>Zihinsel Stres:</strong> [ ] [ ] [ ]</p>
+                </div>
+            </div>
         </div>
-        </section>
-    
+
+        <div class="karakter-kutusu" data-macera-basligi="fate-okul">
+            <div class="karakter-baslik">
+                <img src="zahid.jpg" alt="Zahid Resmi" onerror="this.src='https://via.placeholder.com/120'"> 
+                <div>
+                    <h3 style="margin:0;">Zahid Nabi Çelik</h3>
+                    <p style="margin:5px 0;"><strong>Rol:</strong> [Rolü Buraya Yazın]</p>
+                    <p style="margin:0;"><strong>Oyuncu:</strong> Zahid Nabi | <strong>Refresh:</strong> 3</p>
+                </div>
+            </div>
+            <div class="fate-grid">
+                <div class="sol-sutun">
+                    <h4>🔷 Aspects (Yönler)</h4>
+                    <ul>
+                        <li><strong>Yüksek Konsept:</strong> ...</li>
+                        <li><strong>Sorun:</strong> ...</li>
+                    </ul>
+                    <h4>🔶 Skills (Beceriler)</h4>
+                    <p><strong>(+4):</strong> ...</p>
+                    <p><strong>(+3):</strong> ...</p>
+                    <p><strong>(+2):</strong> ...</p>
+                    <p><strong>(+1):</strong> ...</p>
+                    <p><strong>Vasat (+0):</strong> Gizlilik, İrade, Teknik, İletişim, Tahkik</p>
+                </div>
+                <div class="sag-sutun">
+                    <h4>✨ Stunts (Hünerler)</h4>
+                    <ul>
+                        <li><strong>Hüner 1:</strong> Açıklama...</li>
+                    </ul>
+                    <h4>❤️ Dayanıklılık</h4>
+                    <p><strong>Fiziksel Stres:</strong> [ ] [ ] [ ]</p>
+                    <p><strong>Zihinsel Stres:</strong> [ ] [ ] [ ]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="karakter-kutusu" data-macera-basligi="fate-okul">
+            <div class="karakter-baslik">
+                <img src="mehmet.jpg" alt="Mehmet Resmi" onerror="this.src='https://via.placeholder.com/120'"> 
+                <div>
+                    <h3 style="margin:0;">Mehmet Taha Kaplan</h3>
+                    <p style="margin:5px 0;"><strong>Rol:</strong> [Rolü Buraya Yazın]</p>
+                    <p style="margin:0;"><strong>Oyuncu:</strong> Mehmet Taha | <strong>Refresh:</strong> 3</p>
+                </div>
+            </div>
+            <div class="fate-grid">
+                <div class="sol-sutun">
+                    <h4>🔷 Aspects (Yönler)</h4>
+                    <ul>
+                        <li><strong>Yüksek Konsept:</strong> ...</li>
+                        <li><strong>Sorun:</strong> ...</li>
+                    </ul>
+                    <h4>🔶 Skills (Beceriler)</h4>
+                    <p><strong>(+4):</strong> ...</p>
+                    <p><strong>(+3):</strong> ...</p>
+                    <p><strong>(+2):</strong> ...</p>
+                    <p><strong>(+1):</strong> ...</p>
+                    <p><strong>Vasat (+0):</strong> Fizik, Provokasyon, İlişkiler, Ateş Etmek, Sürüş</p>
+                </div>
+                <div class="sag-sutun">
+                    <h4>✨ Stunts (Hünerler)</h4>
+                    <ul>
+                        <li><strong>Hüner 1:</strong> Açıklama...</li>
+                    </ul>
+                    <h4>❤️ Dayanıklılık</h4>
+                    <p><strong>Fiziksel Stres:</strong> [ ] [ ] [ ]</p>
+                    <p><strong>Zihinsel Stres:</strong> [ ] [ ] [ ]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="karakter-kutusu" data-macera-basligi="fate-okul">
+            <div class="karakter-baslik">
+                <img src="tugrul.jpg" alt="Tuğrul Resmi" onerror="this.src='https://via.placeholder.com/120'"> 
+                <div>
+                    <h3 style="margin:0;">Tuğrul Bakan</h3>
+                    <p style="margin:5px 0;"><strong>Rol:</strong> [Rolü Buraya Yazın]</p>
+                    <p style="margin:0;"><strong>Oyuncu:</strong> Tuğrul | <strong>Refresh:</strong> 3</p>
+                </div>
+            </div>
+            <div class="fate-grid">
+                <div class="sol-sutun">
+                    <h4>🔷 Aspects (Yönler)</h4>
+                    <ul>
+                        <li><strong>Yüksek Konsept:</strong> ...</li>
+                        <li><strong>Sorun:</strong> ...</li>
+                    </ul>
+                    <h4>🔶 Skills (Beceriler)</h4>
+                    <p><strong>(+4):</strong> ...</p>
+                    <p><strong>(+3):</strong> ...</p>
+                    <p><strong>(+2):</strong> ...</p>
+                    <p><strong>(+1):</strong> ...</p>
+                    <p><strong>Vasat (+0):</strong> Empati, Farkındalık, Zanaat, Hırsızlık, Bilgi</p>
+                </div>
+                <div class="sag-sutun">
+                    <h4>✨ Stunts (Hünerler)</h4>
+                    <ul>
+                        <li><strong>Hüner 1:</strong> Açıklama...</li>
+                    </ul>
+                    <h4>❤️ Dayanıklılık</h4>
+                    <p><strong>Fiziksel Stres:</strong> [ ] [ ] [ ]</p>
+                    <p><strong>Zihinsel Stres:</strong> [ ] [ ] [ ]</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>

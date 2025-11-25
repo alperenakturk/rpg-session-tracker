@@ -55,12 +55,13 @@ nav a:hover {
 
 /* Karakter Kutuları Stili (characters.html) */
 .karakter-kutusu {
+    display: none; /* BAŞLANGIÇTA GİZLİ OLSUN */
     border: 1px solid #999;
     padding: 15px;
     margin-bottom: 20px;
     background-color: #fcfcfc;
-    border-left: 5px solid #4a148c; /* Solunda tema rengi çubuğu */
-    display: flow-root; 
+    border-left: 5px solid #4a148c; 
+    overflow: auto; /* Fotoğraf kaymasını düzeltir */
 }
 
 /* Karakter Fotoğrafları (characters.html) */
@@ -111,4 +112,48 @@ nav a:hover {
     font-weight: bold;
     margin-top: 20px;
     padding: 10px;
+}
+
+/* Zar Panellerini Başlangıçta Gizle */
+.zar-paneli {
+    display: none;
+    border: 2px dashed #999;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #e9e9e9;
+}
+
+/* --- FATE Karakter Düzeni (Grid) --- */
+.fate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Sayfayı iki eşit sütuna böler */
+    gap: 20px; /* Sütunlar arası boşluk */
+    margin-top: 15px;
+}
+
+/* Mobilde (telefonda) sütunları alt alta indirir, bozulmayı önler */
+@media (max-width: 700px) {
+    .fate-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* Karakter Başlık Alanı (Resim ve İsim yan yana) */
+.karakter-baslik {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.karakter-baslik img {
+    float: none; /* Eski float özelliğini iptal et */
+    margin: 0;
+    width: 120px; /* Resmi biraz küçültüp sabitledik */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* Resmi yuvarlak yapar (isteğe bağlı) */
 }
