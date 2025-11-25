@@ -137,3 +137,15 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# --- Custom User and Environment Specific Exclusions ---
+
+# macOS system files that store folder view settings
+.DS_Store
+
+# Configuration files created by Visual Studio Code (VS Code)
+.vscode/
+
+# Generic log and cache files
+*.log
+.cache/
