@@ -157,3 +157,63 @@ nav a:hover {
     object-fit: cover;
     border-radius: 50%; /* Resmi yuvarlak yapar (isteğe bağlı) */
 }
+
+/* --- ANA SAYFA MACERA KARTLARI DÜZENİ --- */
+
+#macera-kartlari {
+    display: flex; /* Kartları yan yana dizer */
+    gap: 30px; /* Kartlar arası boşluk */
+    justify-content: center; /* Ortaya hizalar */
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.macera-kart {
+    flex-basis: 50%; /* Her iki karta eşit genişlik verir */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden; /* Resmin kutu dışına taşmasını engeller */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* A etiketindeki alt çizgiyi kaldırır */
+    color: inherit; /* Metin rengini normal bırakır */
+    transition: transform 0.3s ease; /* Hover efekti için yumuşak geçiş */
+}
+
+/* Hover Efekti */
+.macera-kart:hover {
+    transform: scale(1.03); /* Üzerine gelince kartı büyüt */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.macera-kart img {
+    width: 100%;
+    height: 250px; /* Resimlerin yüksekliğini sabitle */
+    object-fit: cover; /* Resmi kutuya sığdırır */
+    display: block;
+}
+
+.aciklama {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.aciklama h3 {
+    margin-top: 5px;
+    font-size: 1.5em;
+    color: #4a148c; /* Ana tema rengi */
+}
+
+.aciklama p.detay {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Telefonlar için tek sütunlu görünüm */
+@media (max-width: 768px) {
+    #macera-kartlari {
+        flex-direction: column; /* Kartları alt alta dizer */
+        gap: 20px;
+    }
+}
