@@ -7,24 +7,26 @@
 </head>
 <body>
 
+    <div class="icerik-kutusu">
+
     <nav>
         <a href="index.html">ANA SAYFA</a> |
         <a href="characters.html">KARAKTERLER</a> |
         <a href="dice.html">ZAR ATMA</a> |
     </nav>
-    <hr>
-
+    
 <section id="zar-secimi" style="text-align: center;">
         <h2>Zar Atma Odası</h2>
         <label for="zar-tipi">Hangi zarı atmak istersiniz?</label>
         <br><br>
-        
         <select id="zar-tipi" onchange="zarPaneliniDegistir()" style="padding: 10px; font-size: 1.1em;">
             <option value="" disabled selected>-- Bir Zar Tipi Seçin --</option>
             <option value="fate">FATE Zarları (4dF)</option>
             <option value="dnd">D&D Zarı (D20)</option>
         </select>
     </section>
+
+    
 
     <section id="fate-paneli" class="zar-paneli">
         <h3>FATE Sistemi</h3>
@@ -37,6 +39,8 @@
         <button onclick="d20At()">D20 At</button>
         <div id="dnd-sonuc" style="margin-top: 20px; font-size: 1.5em; font-weight: bold;"></div>
     </section>
+
+    </div> 
     
     <script src="script.js"></script>
 </body>

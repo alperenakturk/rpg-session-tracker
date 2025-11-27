@@ -68,8 +68,8 @@ function fateZariAt() {
     sonucAlani.innerHTML = `
         <div>${gorsel}</div>
         <hr style="width:50%; margin:10px auto;">
-        <div style="font-size:2em; font-weight:bold;">TOPLAM: ${isaretliToplam}</div>
-        <div style="font-size:0.8em; color:#666;">(+${arti}) (-${eksi}) (Boş ${bos})</div>
+        <div style="font-size:2em; font-weight:bold; color: #333;">TOPLAM: ${isaretliToplam}</div>
+        <div style="font-size:0.8em; color: #333;">(+${arti}) (-${eksi}) (Boş ${bos})</div>
     `;
 }
 

@@ -16,6 +16,20 @@ body {
     color: #333; 
 }
 
+/* Yazıların Okunurluğunu Artırmak İçin Kutu Stili */
+.icerik-kutusu {
+    /* GÜNCELLEME: Koyu Altın/Kahverengi Rengi (Şeffaflık %85) */
+    background-color: rgba(139, 101, 8, 0.85); 
+    
+    /* YENİ EKLENTİ: Koyu arka planda okunması için metin rengini beyaz yapıyoruz */
+    color: #fff; 
+    
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
 /* --- 2. ANA İÇERİK KUTUSU (Tüm sayfaları saran kutu) --- */
 #ana-icerik-kutusu {
     background-color: #e0d8c0; /* Koyu Parşömen Rengi */
@@ -78,16 +92,33 @@ nav a:hover {
 }
 
 /* --- 5. KARAKTER KUTULARI (characters.html) --- */
+
+/* Karakter Kutuları Stili (characters.html) */
 .karakter-kutusu {
-    display: none; /* Başlangıçta gizli (filtreleme için) */
-    border: 1px solid #c2b29c;
-    padding: 20px;
-    margin-bottom: 25px;
-    /* Okunurluk Ayarı: Kart arka planı */
-    background-color: #fffaf0; 
-    border-left: 6px solid #4a148c; 
+    display: none; /* BAŞLANGIÇTA GİZLİ OLSUN */
+    border: 1px solid #999;
+    padding: 20px; /* Boşluğu biraz artırdık */
+    /* margin-bottom: 20px; satırını silebilirsiniz. */
+    
+    /* GÜNCELLEME 1: Arka Planı Parşömen Temasına Uyarlama */
+    background-color: #f4e9d8; /* Açık Parşömen Rengi */
+    
+    /* GÜNCELLEME 2: Tema ile uyumlu sol sınır rengi */
+    border-left: 5px solid #8b6508; /* Koyu Kahverengi/Altın */
+    border-radius: 8px; /* Yumuşak köşeler ekledik */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Kutuları belirginleştirir */
     overflow: auto; 
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Karakter Kutularını Yan Yana Dizmek İçin Kapsayıcı (Grid) Stili */
+#karakterler-listesi {
+    display: grid; /* Grid düzenini etkinleştirir */
+    /* Sayfayı eşit genişlikte 2 sütuna böler */
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px; /* Kutular arası boşluk bırakır */
+    margin: 30px auto; /* Sayfada ortalar */
+    max-width: 1200px; /* Maksimum genişliğini belirler */
+    padding: 0 20px;
 }
 
 .karakter-kutusu img {
@@ -186,26 +217,35 @@ button:active {
 
 /* --- 8. ANA SAYFA MACERA KARTLARI (index.html) --- */
 
+/* --- 8. ANA SAYFA MACERA KARTLARI (index.html) --- */
+
 #macera-kartlari {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
     margin: 30px auto;
-    width: 95%;
+    max-width: 900px; 
+    width: 95%; 
+
+    /* GÜNCELLEME: D&D Temasına Uygun Koyu, Şeffaf Arka Plan */
+    background-color: rgba(139, 101, 8, 0.85); 
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .macera-kart {
-    flex-basis: 50%;
-    border: 1px solid #aaa;
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.3s ease;
+    /* Eski 'flex-basis: 50%' yerine, kartlara sabit bir genişlik tanımlıyoruz */
+    width: 450px; 
+    flex-shrink: 0; /* Kartların, kapsayıcı 900px'ten küçük olsa bile küçülmesini engeller */
     
-    /* Okunurluk Ayarı: Kartların içi beyaz/parşömen olsun ki resim üstünde kaybolmasın */
-    background-color: #fffaf0; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    /* ...diğer stiller olduğu gibi kalsın */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none; 
+    color: inherit; 
+    transition: transform 0.3s ease; 
 }
 
 .macera-kart:hover {
@@ -221,21 +261,29 @@ button:active {
     border-bottom: 1px solid #ccc;
 }
 
-.aciklama {
-    padding: 20px;
-    text-align: center;
+/* Başlık Stilleri (Genel Başlıkları Etkiler) */
+/* Sayfadaki tüm h2 başlıklarının da yeni temaya uygun olması için güncelliyoruz */
+h1, h2 {
+    /* Eski: color: #4a148c; */
+    color: #ffcc99; /* Açık parşömen/krem rengi */
+    border-bottom: none
 }
 
+
+/* Tekil Macera Kartı Başlıkları (.aciklama h3) */
 .aciklama h3 {
     margin: 0 0 10px 0;
     font-size: 1.4em;
-    color: #4a148c;
-    border-bottom: none; /* Kart içindeki başlığın alt çizgisini kaldır */
+    /* GÜNCELLEME: Metin rengini açıyoruz */
+    color: #fff; 
+    border-bottom: none; 
 }
 
+/* Tekil Macera Kartı Açıklama Paragrafları (.aciklama p) */
 .aciklama p {
     font-size: 0.95em;
-    color: #444;
+    /* GÜNCELLEME: Metin rengini açıyoruz */
+    color: #eeeeee; /* Hafif kirli beyaz */
 }
 
 /* Mobilde kartları alt alta al */
